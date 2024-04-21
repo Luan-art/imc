@@ -3,70 +3,92 @@ float peso = 0, altura = 0, IMC = 0;
 
 do
 {
-    Console.WriteLine("Iforme seu peso em quilos: ");
+    Console.WriteLine("Informe seu peso em quilos: ");
     peso = float.Parse(Console.ReadLine());
-
 } while (peso <= 0);
 
 do
 {
-    Console.WriteLine("Iforme sua altura em Metros: ");
+    Console.WriteLine("Informe sua altura em Metros: ");
     altura = float.Parse(Console.ReadLine());
-
 } while (altura <= 0);
 
 do
 {
     Console.WriteLine("Digite seu gênero [F/M]:");
     genero = Console.ReadLine();
-
 } while (genero != "F" && genero != "M");
 
 IMC = peso / (altura * altura);
 
-if (IMC < 17)
+if (genero == "M")
 {
-    Console.WriteLine("Muito abaixo do peso");
-}
-else
-{
-    if (IMC < 18.5)
+
+    if (IMC < 20.7)
     {
         Console.WriteLine("Abaixo do peso");
     }
     else
     {
-        if (IMC < 24.9)
+        if (IMC < 26.4)
         {
-            Console.WriteLine("Peso Normal");
+            Console.WriteLine("Peso Ideal");
         }
         else
         {
-            if (IMC < 29.9)
+            if (IMC < 27.8)
             {
-                Console.WriteLine("Acima do peso");
+                Console.WriteLine("Pouco acima do peso");
             }
             else
             {
-                if(IMC < 34.3)
+                if (IMC < 31.1)
                 {
-                    Console.WriteLine("Obesidade | ");
+                    Console.WriteLine("Acima do peso");
                 }
                 else
                 {
-                    if(IMC < 39.9)
-                    {
-                        Console.WriteLine("Obesidade ||");
 
-                    }
-                    else
-                    {
-                        Console.WriteLine("Obesidade |||");
-
-                    }
+                    Console.WriteLine("Obesidade");
                 }
             }
         }
     }
-    
+
+
+}
+else
+{
+
+    if (IMC < 19.1)
+    {
+        Console.WriteLine("Abaixo do peso");
+    }
+    else
+    {
+        if (IMC < 25.8)
+        {
+            Console.WriteLine("Peso Ideal");
+        }
+        else
+        {
+            if (IMC < 27.3)
+            {
+                Console.WriteLine("Pouco acima do peso");
+            }
+            else
+            {
+                if (IMC < 32.3)
+                {
+                    Console.WriteLine("Acima do peso");
+                }
+                else
+                {
+
+                    Console.WriteLine("Obesidade");
+                }
+            }
+        }
+    }
+
 }
