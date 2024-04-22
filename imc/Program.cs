@@ -1,16 +1,16 @@
 ﻿string genero;
-float peso = 0, altura = 0, IMC = 0;
+double peso = 0, altura = 0, IMC = 0;
 
 do
 {
     Console.WriteLine("Informe seu peso em quilos: ");
-    peso = float.Parse(Console.ReadLine());
+    peso = double.Parse(Console.ReadLine());
 } while (peso <= 0);
 
 do
 {
     Console.WriteLine("Informe sua altura em Metros: ");
-    altura = float.Parse(Console.ReadLine());
+    altura = double.Parse(Console.ReadLine());
 } while (altura <= 0);
 
 do
@@ -21,74 +21,36 @@ do
 
 IMC = peso / (altura * altura);
 
-if (genero == "M")
+switch (genero)
 {
-
-    if (IMC < 20.7)
-    {
-        Console.WriteLine("Abaixo do peso");
-    }
-    else
-    {
-        if (IMC < 26.4)
-        {
+    case "F":
+        if (IMC < 19.1)
+            Console.WriteLine("Abaixo do peso");
+        else if (IMC < 25.8)
             Console.WriteLine("Peso Ideal");
-        }
+        else if (IMC < 27.3)
+            Console.WriteLine("Pouco acima do peso");
+        else if (IMC < 32.3)
+            Console.WriteLine("Acima do peso");
         else
-        {
-            if (IMC < 27.8)
-            {
-                Console.WriteLine("Pouco acima do peso");
-            }
-            else
-            {
-                if (IMC < 31.1)
-                {
-                    Console.WriteLine("Acima do peso");
-                }
-                else
-                {
+            Console.WriteLine("Obesidade");
 
-                    Console.WriteLine("Obesidade");
-                }
-            }
-        }
-    }
+        break;
 
-
-}
-else
-{
-
-    if (IMC < 19.1)
-    {
-        Console.WriteLine("Abaixo do peso");
-    }
-    else
-    {
-        if (IMC < 25.8)
-        {
-            Console.WriteLine("Peso Ideal");
-        }
+    case "M":
+        if (IMC < 20.7)
+            Console.WriteLine("Abaixo do peso");
+        else if (IMC < 26.4)
+            Console.WriteLine("Peso Ideal");      
+        else if (IMC < 27.8)            
+            Console.WriteLine("Pouco acima do peso");            
+        else if (IMC < 31.1)  
+            Console.WriteLine("Acima do peso");    
         else
-        {
-            if (IMC < 27.3)
-            {
-                Console.WriteLine("Pouco acima do peso");
-            }
-            else
-            {
-                if (IMC < 32.3)
-                {
-                    Console.WriteLine("Acima do peso");
-                }
-                else
-                {
+            Console.WriteLine("Obesidade");
+    break;
 
-                    Console.WriteLine("Obesidade");
-                }
-            }
-        }
-    }
-
+    default:
+        Console.WriteLine("Genêro não abrangido");
+    break;
 }
